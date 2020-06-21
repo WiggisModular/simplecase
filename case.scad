@@ -9,19 +9,33 @@ Depth = 200;
 Slew = 100; 
 MaterialThickness = 6;
 
-Speaker = 0;  // [0:No, 1:Yes]
+Speaker = 1;  // [0:No, 1:Yes]
 SpeakerPos = 0; //[0:Front, 1:Side, 2:Back, 3:Bottom]
 SpeakerXPos = 60;
-SpeakerYPos = 40;
+SpeakerYPos = 30;
+SpeakerMountingHoleSize = 5.5;
 
+Socket = 1;  // [0:No, 1:Yes]
+SocketPos = 0; //[0:Left, 1:Right] 
 
 // Margin between parts in 2D
 Margin = 5;
 Render = 0;  // [0:3D, 1:2D, 2:2D-Export]
 
+MHposx = -325;
+HMposy = -200;
 
-rh = ceil(RackHeight*44.45)+3*MaterialThickness; 
+// usually no need to change this
+Uinmm = 44.45;
+U3holedistance = 116.65;
+// For Intelijel 1U
+U1holedistance = 35.2;
+RailMountingHoleSize =6.5;
+
+rh = ceil(RackHeight*Uinmm)+3*MaterialThickness; 
 height = ceil(sqrt(rh*rh-Slew*Slew))+BaseHeight;
+
+$fn = 60;
 
 module socket_hole(xpos, ypos, th = MaterialThickness){
     // https://www.errorinstruments.com/a-53259897/power-supply-parts-for-case/switch-male-power-socket-for-eurorack-case/#description
