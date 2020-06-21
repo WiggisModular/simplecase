@@ -41,11 +41,11 @@ module socket_hole(xpos, ypos, th = MaterialThickness){
     // https://www.errorinstruments.com/a-53259897/power-supply-parts-for-case/switch-male-power-socket-for-eurorack-case/#description
     translate([xpos,ypos, th/2]){
         union(){
-            cube([47,27,th+2],center = true);
-            translate([0,39/2.0,0])
-            cylinder(d=4.5,th+2, center = true, $fn = 60);
-            translate([0,-39/2.0,0])
-            cylinder(d=4.5,th+2,center = true, $fn = 60);
+            cube([47.5,27.5,th+2],center = true);
+            translate([0,20,0])
+            cylinder(d=3.5,th+2, center = true);
+            translate([0,-20,0])
+            cylinder(d=4.5,th+2,center = true);
         }
     }
 }
