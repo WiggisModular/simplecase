@@ -58,16 +58,19 @@ module speaker(xpos, ypos, th = MaterialThickness){
             for (x = [0:14]){
                 for (y = [0:6]){
                     translate([x*5,y*5,0]){
-                        cylinder(d=2,th+2,center = true, $fn = 60);
+                        cylinder(d=2,th+2,center = true);
                     }
                 }
             }
         }
         //mounting holes
-        translate([-37.5,-20,th/2]) cylinder(d=4.5,th+2,center = true, $fn = 60);
-        translate([-37.5,20,th/2]) cylinder(d=4.5,th+2,center = true, $fn = 60);
-        translate([37.5,-20,th/2]) cylinder(d=4.5,th+2,center = true, $fn = 60);
-        translate([37.5,20,th/2]) cylinder(d=4.5,th+2,center = true, $fn = 60);
+        translate([-37.5,-20,th/2]) cylinder(d=SpeakerMountingHoleSize,th+2,center = true);
+        translate([-37.5,20,th/2]) cylinder(d=SpeakerMountingHoleSize,th+2,center = true);
+        translate([37.5,-20,th/2]) cylinder(d=SpeakerMountingHoleSize,th+2,center = true);
+        translate([37.5,20,th/2]) cylinder(d=SpeakerMountingHoleSize,th+2,center = true);
+    }
+}
+
     }
 }
 
