@@ -95,8 +95,8 @@ module mountingHoles(xpos = MHposx, ypos = HMposy, h = RackHeight, th = Material
     translate([xpos,ypos,0]){
         for (i = [0:u3rows-1]){
             holes3u(0+i*Uinmm*3,0);
+        }
     }
-}
     translate([xpos+(u3rows*Uinmm*3)-Uinmm,ypos,0]){
         for (i = [0:u1rows-1]){
             holes1u(0+i*Uinmm,0);
@@ -105,8 +105,11 @@ module mountingHoles(xpos = MHposx, ypos = HMposy, h = RackHeight, th = Material
 }
 
 module side(h = height,bh = BaseHeight, d = Depth, th = MaterialThickness, sl = Slew){
-    linear_extrude(height = th){
-        polygon(points=[[0,0],[h,0],[h,d-sl],[bh,d],[0,d]]);
+    difference(){
+        linear_extrude(height = th){
+            polygon(points=[[0,0],[h,0],[h,d-sl],[bh,d],[0,d]]);
+        }
+        rotate([0,0,180-atan2(Slew,rh)])mountingHoles();
     }
 }
 
@@ -117,15 +120,17 @@ module right(h = height,bh = BaseHeight, d = Depth, th = MaterialThickness, sl =
             rotate([0,0,90])speaker(SpeakerXPos,-SpeakerYPos);
         }
     }
-    else  side(h,bh,d,th,sl);
+    else side(h,bh,d,th,sl);
 }
 
-
 module left(h = height,bh = BaseHeight, d = Depth, th = MaterialThickness, sl = Slew){
-    difference(){
-        side(h,bh,d,th,sl);
-        socket_hole(60,60);
+    if (Socket == 1){
+        difference(){
+            side(h,bh,d,th,sl);
+            socket_hole(60,60);
+        }   
     }
+    else side(h,bh,d,th,sl);
 }
 
 module back(h = height, w = RailLength, th = MaterialThickness){
@@ -174,8 +179,13 @@ module case3d(){
     }
     color("RoyalBlue"){
         rotate([90,0,0]){
-            right();
-            translate([0,0,-RailLength-MaterialThickness]) left();
+            if (SocketPos == 0){ 
+                right();
+                translate([0,0,-RailLength-MaterialThickness]) left();
+            }   else{
+                left();
+                translate([0,0,-RailLength-MaterialThickness]) right();
+            }
         }
     }
     color("MediumOrchid"){
@@ -203,7 +213,6 @@ module case2d(){
     }
 }
 
-
 if (Render==0) case3d();
 
 if (Render==1) case2d();
@@ -215,3 +224,4 @@ if (Render==2){
         }
     }
 }
+

@@ -1,0 +1,53 @@
+{
+    "parameterSets": {
+        "Standardwerte des Designs": {
+            "$fn": "120",
+            "BaseHeight": "70",
+            "Depth": "200",
+            "HMposy": "-200",
+            "MHposx": "-325",
+            "Margin": "5",
+            "MaterialThickness": "6",
+            "RackHeight": "7",
+            "RailLength": "434",
+            "RailMountingHoleSize": "8",
+            "Render": "0",
+            "Slew": "100",
+            "Socket": "1",
+            "SocketPos": "1",
+            "Speaker": "1",
+            "SpeakerMountingHoleSize": "4.5",
+            "SpeakerPos": "0",
+            "SpeakerXPos": "360",
+            "SpeakerYPos": "30",
+            "U1holedistance": "35.2",
+            "U3holedistance": "116.65",
+            "Uinmm": "44.45"
+        },
+        "Wiggis Modular 7U": {
+            "$fn": "120",
+            "BaseHeight": "70",
+            "Depth": "200",
+            "HMposy": "-200",
+            "MHposx": "-325",
+            "Margin": "5",
+            "MaterialThickness": "6",
+            "RackHeight": "7",
+            "RailLength": "434",
+            "RailMountingHoleSize": "8",
+            "Render": "0",
+            "Slew": "100",
+            "Socket": "1",
+            "SocketPos": "1",
+            "Speaker": "1",
+            "SpeakerMountingHoleSize": "4.5",
+            "SpeakerPos": "0",
+            "SpeakerXPos": "360",
+            "SpeakerYPos": "30",
+            "U1holedistance": "35.2",
+            "U3holedistance": "116.65",
+            "Uinmm": "44.45"
+        }
+    },
+    "fileFormatVersion": "1"
+}
