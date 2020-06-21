@@ -71,6 +71,36 @@ module speaker(xpos, ypos, th = MaterialThickness){
     }
 }
 
+
+module railholes(xpos, ypos,holespacing, height, th = MaterialThickness){
+    pos1 = (height-holespacing)/2;
+    pos2 = (pos1+holespacing);
+    translate([xpos,ypos,0]){
+        translate([pos1,0,th/2]) cylinder(d=RailMountingHoleSize,th+2,center = true);    
+        translate([pos2,0,th/2]) cylinder(d=RailMountingHoleSize,th+2,center = true);
+    }
+}
+
+module holes3u(xpos, ypos, th = MaterialThickness){
+    railholes(xpos,ypos,U3holedistance,3*Uinmm);
+}
+
+module holes1u(xpos, ypos, th = MaterialThickness){
+    railholes(xpos,ypos,U1holedistance,Uinmm);
+}
+
+module mountingHoles(xpos = MHposx, ypos = HMposy, h = RackHeight, th = MaterialThickness){
+    u3rows = RackHeight/3;
+    u1rows = RackHeight%3;
+    translate([xpos,ypos,0]){
+        for (i = [0:u3rows-1]){
+            holes3u(0+i*Uinmm*3,0);
+    }
+}
+    translate([xpos+(u3rows*Uinmm*3)-Uinmm,ypos,0]){
+        for (i = [0:u1rows-1]){
+            holes1u(0+i*Uinmm,0);
+        }
     }
 }
 
