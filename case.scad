@@ -200,14 +200,13 @@ module case2d(){
     color("MediumSeaGreen"){
         back();
         translate([height+(Depth-Slew)+Margin,0,0]) front_top();
-        translate([-2*Margin-Depth-BaseHeight,0,0]) front();
+        translate([6*Margin+Depth +BaseHeight + Slew * 2 + 3*MaterialThickness  ,0,0]) front();
     }
     color("RoyalBlue"){
-        translate([0,RailLength+Margin,0]) left();
-        translate([0,-Margin,0]) mirror([0,1,0]) right();
+        translate([-height/2 -Margin,-Margin,0]) mirror([0,1,0])  left();
+        translate([height/2 ,-Margin,0]) mirror([0,1,0]) right();
     }
     color("MediumOrchid"){
-
         translate([-Margin-Depth,0,0]) bottom();
         translate([height,0,0]) top();
     }
